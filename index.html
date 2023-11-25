@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
+    <title>LEVEL UP SHOPIFY CHALLENGE</title>
+  </head>
+  <body>
+    <nav>
+      <div class="flex-container">
+        <div class="logo-wrapper">
+          <a href="https://www.shopify.com/" target="_blank"
+            ><img
+              src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg"
+              class="logo"
+              alt="shopify-logo"
+          /></a>
+        </div>
+        <div class="input-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            aria-label="search-button"
+            width="23"
+            height="23"
+            viewBox="0 0 13 14"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8.82264 10.3833C7.89957 11.0841 6.74835 11.5 5.5 11.5C2.46243 11.5 0 9.03757 0 6C0 2.96243 2.46243 0.5 5.5 0.5C8.53757 0.5 11 2.96243 11 6C11 7.24835 10.5841 8.39957 9.8833 9.32264L12.7803 12.2197C13.0732 12.5126 13.0732 12.9874 12.7803 13.2803C12.4874 13.5732 12.0126 13.5732 11.7197 13.2803L8.82264 10.3833ZM9.5 6C9.5 8.20914 7.70914 10 5.5 10C3.29086 10 1.5 8.20914 1.5 6C1.5 3.79086 3.29086 2 5.5 2C7.70914 2 9.5 3.79086 9.5 6Z"
+              fill="#fff"
+            />
+          </svg>
+          <form class="form"> 
+            <input type="text" name="input-area" id="form-input" placeholder="Search" />
+          </form>
+        </div>
+        <div class="dropdown-container">
+          <div id="notification-outer">
+            <button aria-label="notification-button" aria-haspopup="true" aria-controls="notification" aria-expanded="false" class="notification-inner popup-btn" id="notification-alert">
+              <svg
+                aria-label="notification-icon_button"
+                class="notification-icon"
+                width="41"
+                height="40"
+                viewBox="0 0 21 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M7.75203 14.4239L5.3061 14.1427C3.45144 13.9295 2.92542 11.4844 4.52838 10.5274L4.5933 10.4886C5.466 9.96761 6.00045 9.02609 6.00045 8.00969V7.5C6.00045 5.01472 8.01517 3 10.5005 3C12.9857 3 15.0005 5.01472 15.0005 7.5V8.00969C15.0005 9.02609 15.5349 9.96761 16.4076 10.4886L16.4725 10.5274C18.0755 11.4844 17.5495 13.9295 15.6948 14.1427L13.152 14.435V14.8C13.152 16.2912 11.9432 17.5 10.452 17.5C8.96086 17.5 7.75203 16.2912 7.75203 14.8V14.4239ZM11.652 14.5H9.25203V14.8C9.25203 15.4627 9.78929 16 10.452 16C11.1148 16 11.652 15.4627 11.652 14.8V14.5ZM8.50045 13H12.5005L15.5235 12.6525C15.953 12.6032 16.0748 12.0369 15.7036 11.8153L15.6387 11.7766C15.5591 11.7291 15.4815 11.6793 15.4057 11.6273C15.2506 11.521 15.1036 11.4055 14.9651 11.2818C14.9405 11.2598 14.9162 11.2377 14.8922 11.2152C14.0144 10.395 13.5005 9.23833 13.5005 8.00969V7.5C13.5005 5.84315 12.1573 4.5 10.5005 4.5C8.8436 4.5 7.50045 5.84315 7.50045 7.5V8.00969C7.50045 9.23833 6.98651 10.395 6.10871 11.2152C6.08469 11.2377 6.06039 11.2598 6.03583 11.2818C5.89734 11.4055 5.75029 11.521 5.59523 11.6273C5.51945 11.6793 5.44176 11.7291 5.36222 11.7766L5.29729 11.8153C4.9261 12.0369 5.0479 12.6032 5.47739 12.6525L8.50045 13Z"
+                  fill="#fff"
+                />
+              </svg>
+            </button>
+            <!--modal-->
+            <div class="notification-modal hide" id="notification">
+              <div class="notify-inner_div">
+                <h3>Alerts</h3>
+                <div class="alert-svg_container">
+                  <svg  aria-label="menu-like-icon" width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 1C0 0.585786 0.335786 0.25 0.75 0.25H13.25C13.6642 0.25 14 0.585786 14 1C14 1.41421 13.6642 1.75 13.25 1.75H0.75C0.335786 1.75 0 1.41421 0 1Z" fill="#616161"/>
+                    <path d="M3.75 9C3.75 8.58579 4.08579 8.25 4.5 8.25H9.5C9.91421 8.25 10.25 8.58579 10.25 9C10.25 9.41421 9.91421 9.75 9.5 9.75H4.5C4.08579 9.75 3.75 9.41421 3.75 9Z" fill="#616161"/>
+                    <path d="M2.5 4.25C2.08579 4.25 1.75 4.58579 1.75 5C1.75 5.41421 2.08579 5.75 2.5 5.75H11.5C11.9142 5.75 12.25 5.41421 12.25 5C12.25 4.58579 11.9142 4.25 11.5 4.25H2.5Z" fill="#616161"/>
+                    </svg>
+                    <svg aria-label="check-mark-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.2803 9.03033C13.5732 8.73744 13.5732 8.26256 13.2803 7.96967C12.9874 7.67678 12.5126 7.67678 12.2197 7.96967L9.25 10.9393L8.03033 9.71967C7.73744 9.42678 7.26256 9.42678 6.96967 9.71967C6.67678 10.0126 6.67678 10.4874 6.96967 10.7803L8.71967 12.5303C9.01256 12.8232 9.48744 12.8232 9.78033 12.5303L13.2803 9.03033Z" fill="#616161"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.5 10C15.5 13.0376 13.0376 15.5 10 15.5C6.96243 15.5 4.5 13.0376 4.5 10C4.5 6.96243 6.96243 4.5 10 4.5C13.0376 4.5 15.5 6.96243 15.5 10Z" fill="#616161"/>
+                      </svg>
+                </div>
+              </div>
+              <p>Alerts about your store and accounts will show here.</p>
+            </div>
+          </div>
+          <div class="button-store_wrapper">
+            <div class="inner-wrapper">
+              <button type="button" class="store-btn hide popup-btn" id="dropdown" aria-label="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-controller">Davii Collections</button>
+              <button class="dc popup-btn">DC</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="admin-dropdown hide">
+        <div class="store-head">
+          <button type="button" id="store-btn"><span>DC </span>Davii Collection 
+          <svg aria-label="check-mark-icon" width="20" height="20" class="store-checked_svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.2803 9.03033C13.5732 8.73744 13.5732 8.26256 13.2803 7.96967C12.9874 7.67678 12.5126 7.67678 12.2197 7.96967L9.25 10.9393L8.03033 9.71967C7.73744 9.42678 7.26256 9.42678 6.96967 9.71967C6.67678 10.0126 6.67678 10.4874 6.96967 10.7803L8.71967 12.5303C9.01256 12.8232 9.48744 12.8232 9.78033 12.5303L13.2803 9.03033Z" alt="checked-icon" fill="#616161"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10ZM15.5 10C15.5 13.0376 13.0376 15.5 10 15.5C6.96243 15.5 4.5 13.0376 4.5 10C4.5 6.96243 6.96243 4.5 10 4.5C13.0376 4.5 15.5 6.96243 15.5 10Z" fill="#616161"/>
+            </svg>
+          </button>
+          <ul role="menu" aria-labelledby="dropdown" id="menu-controller">
+            <li class="admin-list list-focus" role="menulist" id="admin-list" tabindex="-1">
+              <img
+                src="https://crushingit.tech/hackathon-assets/icon-store.svg"
+                alt="store-icon"
+              />
+              <a href="https://admin.shopify.com/" target="_blank" class="admin-link">All Stores</a>
+            </li>
+          </div>
+          </ul>
+        <div class="list-wrapper">
+          <ul class="admin-list_wrapper">
+            <li class="admin-list" role="menulist" tabindex="-1">
+              <a href="https://admin.shopify.com/" target="_blank"    class="admin-link"
+                >Help center</a
+              >
+            </li>
+            <li class="admin-list" role="menulist" tabindex="-1">
+              <a href="https://admin.shopify.com/" target="_blank" class="admin-link"
+                >ChangeLog</a
+              >
+            </li>
+            <li class="admin-list" role="menulist" tabindex="-1">
+              <a href="https://admin.shopify.com/" target="_blank" class="admin-link"
+                >Community Forums</a
+              >
+            </li>
+            <li class="admin-list" role="menulist" tabindex="-1">
+              <a href="https://admin.shopify.com/" target="_blank" class="admin-link"
+                >Hire a Shopify developer</a
+              >
+            </li>
+            <li class="admin-list" role="menulist" tabindex="-1" >
+              <a href="https://admin.shopify.com/" target="_blank" class="admin-link"
+                >KeyBoard shortcuts</a
+              >
+            </li>
+          </ul>
+          <ul class="admin2">
+            <div class="email-list">
+              <h4>David Michael</h4>
+              <p>davidmichael@gmail.com</p>
+            </div>
+            <li class="admin-list" role="menulist" tabindex="-1">
+              <a href="https://admin.shopify.com/" target="_blank" class="admin-link"
+                >Manage account</a
+              >
+            </li>
+            <li class="admin-list" role="menulist" tabindex="-1">
+              <a href="https://admin.shopify.com/" target="_blank" class="admin-link"
+                >Log out</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- DASHBOARD -->
+    <main>
+      <section class="container">
+        <div class="dashboard-wrapper">
+          <div class="trial-callout">
+            <p>Extend your trial for $1/month for 3 months on select plans</p>
+            <div class="select">
+              <a href="https://www.shopify.com/ng/pricing" target="_blank" class="select-plan">Select a plan</a>
+              <svg role="close-icon" class="close" width="23" height="22" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z" fill="#fff"/>
+                </svg>
+            </div>
+          </div>
+          <div class=" dashboard-body">
+            <div class="set-guide">
+                <h3>Setup guide</h3>
+                <button type="button" class="btn-toggler" aria-expanded="false" aria-controls="collapsible">
+                  <img src="https://crushingit.tech/hackathon-assets/icon-arrow-down.svg" class="img-toggle" alt="collapsible-arrow-button"/>
+                </button>
+                <p>Use this personalised guide to get your store up and running.</p>
+                <div class="panel-wrapper">
+                  <span class="progress-count">0/5 completed</span> 
+                  <div class="underlay-panel">
+                    <div class="progress-bar"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="accordion" id="collapsible">
+              <div class="content-wrapper active">
+                <div class="content-title__checkbox">
+                  <div class="dashed-checkbox_wrapper"> 
+                     <input type="checkbox" class="checked" id="check">
+                     <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
+                       <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
+                       <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
+                      </svg>
+                    </div>
+                  <button class="dashboard-process_header active-button button--1" data-tab="1" aria-expanded="false">Customize your online store</button>
+                </div>
+                <div class="content--hidden content--1">
+                   <div class="content-flex__container">
+                    <div class="product-description">
+                      <p>Choose a theme and add your logo, colors and images to reflect your brand.<a href="#" class="dashboard-link">Learn More</a></p>
+                      <button class="action" aria-label="action store button">Customize theme</button>
+                    </div>
+                        <img src="https://crushingit.tech/hackathon-assets/product.png" alt="image of a store"/>
+                  </div>
+               </div>
+            </div>
+            <div class="content-wrapper">
+              <div class="content-title__checkbox">
+                 <div class="dashed-checkbox_wrapper"> 
+                   <input type="checkbox" class="checked" name="" id="">
+                   <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
+                     <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
+                     <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
+                    </svg>
+                  </div>
+                <button class="dashboard-process_header button--2" data-tab="2" aria-expanded="false">Add your first product</button>
+              </div>
+              <div class="content--hidden content--2 hide">
+                 <div class="content-flex__container">
+                    <div class="product-description">
+                      <p>Write a description. add photos and set pricing for the product you want to sell.<a href="#" class="dashboard-link">Learn More</a></p>
+                      <button class="action" aria-label="action store button">Add product</button>
+                       <a href="" id="action-link">Import product</a>
+                    </div>
+                      <img src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="customize store"/>
+                </div>
+             </div>
+          </div>
+          <div class="content-wrapper">
+            <div class="content-title__checkbox">
+               <div class="dashed-checkbox_wrapper">
+                 <input type="checkbox" class="checked" name="" id="">
+                 <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
+                   <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
+                   <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
+                  </svg>
+                </div>
+              <button class="dashboard-process_header" data-tab="3" aria-expanded="false">Add a custom domain</button>
+            </div>
+            <div class="content--hidden content--3 hide">
+               <div class="content-flex__container">
+                <div class="product-description">
+                  <p>Current domain is 222219.myshopify.com but you can add a custom domain to help customers find your online store.<a href="#" class="dashboard-link">Learn More</a></p>
+                  <button class="action" aria-label="action store button">Add domain</button>
+                </div>
+                   <img src="https://crushingit.tech/hackathon-assets/website.png" alt="domain name"/>
+              </div>
+           </div>
+        </div>
+        <div class="content-wrapper">
+          <div class="content-title__checkbox">
+             <div class="dashed-checkbox_wrapper"> 
+               <input type="checkbox" class="checked" name="" id="">
+               <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
+                 <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
+                 <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
+                </svg>
+              </div>
+            <button class="dashboard-process_header button--5" data-tab="4" aria-expanded="false">Name your store</button>
+          </div>
+          <div class="content--hidden content--4 hide">
+             <div class="content-flex__container">
+              <div class="product-description">
+                <p>Your temporary store name is Davii collections. The store name appears in your admin and your online store.<a href="#" class="dashboard-link">Learn More</a></p>
+                 <button class="action" aria-label="action store button">Name store</button>
+              </div>
+              <img src="https://crushingit.tech/hackathon-assets/name-store.png" alt="name store"/>
+            </div>
+         </div>
+      </div>
+      <div class="content-wrapper">
+        <div class="content-title__checkbox">
+           <div class="dashed-checkbox_wrapper"> 
+             <input type="checkbox" class="checked" name="" id="">
+             <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class="checked-img hide"/>
+               <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
+               <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6"/>
+              </svg>
+            </div>
+          <button class="dashboard-process_header button--5" data-tab="5" aria-expanded="false">Set up a payment provider</button>
+        </div>
+        <div class="content--hidden  content--5 hide">
+           <div class="content-flex__container">
+            <div class="product-description">
+               <p>Choose a  payment provider to start accepting payment.You'll need to create an account with the payment provider and set it up with your Shopify store<a href="#" class="dashboard-link">Learn More</a></p>
+               <button class="action" aria-label="action store button">Set up payment</button>
+             </div>
+              <img src="https://crushingit.tech/hackathon-assets/payment.png" alt="payment process"/>
+          </div>
+       </div>
+        </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
