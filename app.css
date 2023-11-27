@@ -14,9 +14,10 @@
     --clr-grey5:#f1f1f1;
     --clr-blue:#005bd3;
     --clr-green: #27efac;
+    --bg-clr: transparent;
     --padding: 1rem;
     --padding2:.8rem .7rem;
-    --padding3: .7rem 0 .7rem 2rem;
+    --padding3: .6rem 0 .6rem 2rem;
     --padding4: 1rem 0;
     --padding-small:.2rem .4rem;;
     --font-size: .9rem;
@@ -68,14 +69,12 @@ nav{
 .input-container input:focus{
     border: 2px solid var(--white);
 }
-/* .focused, .focused:focus{
-    border: 2px solid var(--clr-grey3);
-} */
+ 
  
 .input-container svg{
     position: absolute;
     width: 15px;
-    transform: translate(50%, 50%);
+    transform: translate(50%, 35%);
 }
 
 .dropdown-container{
@@ -177,7 +176,7 @@ nav{
     padding: var(--padding2);
     display: block;
     width: 100%;
-    background-color: transparent;
+    background-color: var(--bg-clr);
     text-align: left;
     border: none;
     border-radius: 7px;
@@ -236,62 +235,61 @@ nav{
     background-color: var(--clr-blck);
     color: var(--white);
     padding: var(--padding2);
-    border-radius: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap:10px;
     font-weight: 200;
-    font-size: .6rem;
+    font-size: 1rem;
 }
 
 .trial-callout a{
-    width: 80px;
-    background-color: var(--white);
     text-decoration: none;
     color: var(--clr-blck);
-    padding: .3rem;
     border-radius: 7px;
     font-weight: var(--font-weight);
 }
 
 .select{
-    width: 35%;
     display: flex;
-    gap: 10px;
-    align-items: center;
+    flex-direction: column;
+    gap: 15px;
 }
-.select a{
-    margin-right: .2rem;
+.select button{
+    padding: .3rem;
+    width: 150px;
+    border-radius: 9px;
 }
  
-.select-plan:hover, .select-plan:active{
+.select button:hover, .select button:focus{
     background-color: var(--clr-grey1);
 }
-.select-plan:focus, .admin-list:focus{
+ .select button:focus, .admin-list:focus{
     border: 2px solid var(--clr-blue);
+}
+.remove{
+    background-color: var(--bg-clr);
+    border: none;
 }
 
 /* DASHBOARD */
 .dashboard-body{
     border: 2px solid var(--clr-grey2);
-    border-radius: 10px;
     padding: var(--padding);
     margin-top: 2rem;
     background-color: var(--white);
+    transition: all 500ms;
 }
-.accordion{
-    transition: 400ms ease-in;
-}
+ 
 .set-guide{
-    font-size: .8rem;
+    font-size: .9rem;
 }
 .set-guide h3{
     display: inline-block;
     padding-bottom: .5rem;
 }
 .btn-toggler{
-    background-color: transparent;
+    background-color: var(--bg-clr);
     border: none;
     float: right;
     transition: 400ms ease-in;
@@ -303,8 +301,12 @@ nav{
 
 .dashed-checkbox_wrapper{
    position:  relative;
+   background-color: var(--bg-clr);
+   border: none;
 }
-
+.dashed-checkbox_wrapper:focus{
+   border: 2px solid --clr-blue;
+}
 [type='checkbox']{
     width: 20px;
     opacity: 0;
@@ -320,6 +322,7 @@ nav{
     height: 30px;
     top: 0;
     left:0;
+    transition: 400ms ease-in;
 }
  
 /* progress bar */
@@ -347,10 +350,9 @@ nav{
     padding: .8rem;
 }
 
- 
 .dashboard-process_header{
     cursor: pointer;
-    background-color: transparent;
+    background-color: var(--bg-clr);
     border: none;
     color: var(---mid-black);
 }
@@ -358,13 +360,12 @@ nav{
     display: flex;
     align-items: center;  
     gap: 6px; 
-    /* border: 2px solid red; */
 }
 
 .content-flex__container{
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
 }
 .content-flex__container img{
     display: none;
@@ -423,28 +424,40 @@ nav{
     background-color: var(--faint-blck);
 }
 .trial-callout{
-    font-size: .87rem;
+    font-size: .89rem;
+    border-radius: 7px;
 }
 .trial-callout img{
     width: 30px;
 }
-.trial-callout a{
-    width: 100px;
+.select button{
+    width: 120px;
 }
 .select{
-    width: 16%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
-
+.content-title__checkbox{
+   width: 50%;
+}
 .content-flex__container img{
     display: block;
 
 }
 .dashboard-wrapper{
     width: 75%;
-     max-width: 900px; 
+    max-width: 900px; 
+}
+.dashboard-body{
+    border-radius: 10px;
+
 }
 .admin-dropdown{
     width: 30%;
 }
-
 }
+
+ 
