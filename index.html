@@ -154,13 +154,17 @@
       <section class="container">
         <div class="dashboard-wrapper">
           <div class="trial-callout">
-            <p>Extend your trial for $1/month for 3 months on select plans</p>
             <div class="select">
-              <a href="https://www.shopify.com/ng/pricing" target="_blank" class="select-plan">Select a plan</a>
+              <p>Extend your trial for $1/month for 3 months on select plans</p>
+              <button>
+                <a href="https://www.shopify.com/ng/pricing" target="_blank" class="select-plan">Select a plan</a>
+              </button>
+            </div>
+            <button class="remove">
               <svg role="close-icon" class="close" width="23" height="22" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z" fill="#fff"/>
                 </svg>
-            </div>
+            </button>
           </div>
           <div class=" dashboard-body">
             <div class="set-guide">
@@ -179,20 +183,20 @@
             <div class="accordion" id="collapsible">
               <div class="content-wrapper active">
                 <div class="content-title__checkbox">
-                  <div class="dashed-checkbox_wrapper"> 
+                  <button class="dashed-checkbox_wrapper"> 
                      <input type="checkbox" class="checked" id="check">
                      <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
                        <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
                        <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
                       </svg>
-                    </div>
+                    </button>
                   <button class="dashboard-process_header active-button button--1" data-tab="1" aria-expanded="false">Customize your online store</button>
                 </div>
                 <div class="content--hidden content--1">
                    <div class="content-flex__container">
                     <div class="product-description">
                       <p>Choose a theme and add your logo, colors and images to reflect your brand.<a href="#" class="dashboard-link">Learn More</a></p>
-                      <button class="action" aria-label="action store button">Customize theme</button>
+                      <button class="action" aria-expanded="false" aria-label="action store button">Customize theme</button>
                     </div>
                         <img src="https://crushingit.tech/hackathon-assets/product.png" alt="image of a store"/>
                   </div>
@@ -200,13 +204,13 @@
             </div>
             <div class="content-wrapper">
               <div class="content-title__checkbox">
-                 <div class="dashed-checkbox_wrapper"> 
+                 <button class="dashed-checkbox_wrapper"> 
                    <input type="checkbox" class="checked" name="" id="">
                    <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
                      <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
-                     <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
+                     <circle cx="16" cy="16" r="12" class="circle" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
                     </svg>
-                  </div>
+                  </button>
                 <button class="dashboard-process_header button--2" data-tab="2" aria-expanded="false">Add your first product</button>
               </div>
               <div class="content--hidden content--2 hide">
@@ -222,13 +226,13 @@
           </div>
           <div class="content-wrapper">
             <div class="content-title__checkbox">
-               <div class="dashed-checkbox_wrapper">
+               <button class="dashed-checkbox_wrapper">
                  <input type="checkbox" class="checked" name="" id="">
                  <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
                    <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
                    <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
                   </svg>
-                </div>
+                </button>
               <button class="dashboard-process_header" data-tab="3" aria-expanded="false">Add a custom domain</button>
             </div>
             <div class="content--hidden content--3 hide">
@@ -243,13 +247,13 @@
         </div>
         <div class="content-wrapper">
           <div class="content-title__checkbox">
-             <div class="dashed-checkbox_wrapper"> 
+             <button class="dashed-checkbox_wrapper"> 
                <input type="checkbox" class="checked" name="" id="">
                <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class=" checked-img hide"/>
                  <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
                  <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" />
                 </svg>
-              </div>
+              </button>
             <button class="dashboard-process_header button--5" data-tab="4" aria-expanded="false">Name your store</button>
           </div>
           <div class="content--hidden content--4 hide">
@@ -264,13 +268,13 @@
       </div>
       <div class="content-wrapper">
         <div class="content-title__checkbox">
-           <div class="dashed-checkbox_wrapper"> 
+           <button class="dashed-checkbox_wrapper"> 
              <input type="checkbox" class="checked" name="" id="">
              <img src="https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg" class="checked-img hide"/>
                <svg xmlns="http://www.w3.org/2000/svg" class="radio-dash_checked" width="30" height="30" viewBox="0 0 32 32" fill="none">
                <circle cx="16" cy="16" r="12" stroke="#656266" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6"/>
               </svg>
-            </div>
+            </button>
           <button class="dashboard-process_header button--5" data-tab="5" aria-expanded="false">Set up a payment provider</button>
         </div>
         <div class="content--hidden  content--5 hide">

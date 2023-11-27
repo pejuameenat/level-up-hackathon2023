@@ -24,6 +24,7 @@ const checkboxContainer = document.querySelectorAll('.dashed-checkbox_wrapper')
 const contentWrapper = document.querySelectorAll('.content-wrapper');
 const contentHidden = document.querySelectorAll('.content--hidden');
 const dashProcessBtnHeader = document.querySelectorAll('.dashboard-process_header');
+// const circle = document.querySelector('.circle');
 
 //REUSABLE FUNCTIONS
 function handleKeyClose(e, el, key){
@@ -40,16 +41,16 @@ notificationIcon.addEventListener('click', function(){
     const isCollapsed = notificationIcon.getAttribute('aria-expanded')
      modal.classList.toggle('hide')
      if(isCollapsed === 'false'){
-        notificationIcon.setAttribute('aria-expanded', 'true')
+        notificationIcon.setAttribute('aria-expanded', 'true');
      }else{
-        notificationIcon.setAttribute('aria-expanded', 'false')
+        notificationIcon.setAttribute('aria-expanded', 'false');
      }
-     showAlertAndCloseDropdown(AdminDropdown)
+     showAlertAndCloseDropdown(AdminDropdown);
 
 });
 
 document.addEventListener('keydown', function(e){
-     handleKeyClose(e, modal, 'Escape')
+     handleKeyClose(e, modal, 'Escape');
 });
 
 //resizing browser window
@@ -130,19 +131,22 @@ document.addEventListener('keydown', function(e){
         imgToggler.setAttribute('src', 'https://crushingit.tech/hackathon-assets/icon-arrow-down.svg')
         accordion.classList.add('hide');
     }
+    dashboardToggler.focus()
 }
 
 dashboardToggler.addEventListener('click', handleDashboardToggle)
 document.addEventListener('keydown', function(e){
-    if(e.key === '.' || e.key === ',' && ! accordion.classList.contains('hide')){
+    if(e.key === '.' || e.key === ',' && !accordion.classList.contains('hide')){
         handleDashboardToggle();
     }
 });
 
 // adding the appropriate classes to active element in the dash board
  accordion.addEventListener('click', function(e){
-    const clicked = e.target.closest('.dashboard-process_header');
-    if(!clicked) return;
+    const clicked = e.target.closest('.dashboard-process_header', '.dashed-checkbox_wrapper');
+    const isOpened =  clicked.getAttribute('aria-expanded');
+    if(!clicked && isOpened !== 'false') return;
+      clicked.setAttribute('aria-expanded', 'true');
      dashProcessBtnHeader.forEach(btnHeader => btnHeader.classList.remove('active-button')
      );
     contentWrapper.forEach(content => content.classList.remove('active'));
@@ -175,6 +179,8 @@ document.addEventListener('keydown', function(e){
  checkboxContainer.forEach(check => {
     check.addEventListener('click',updateProgressBar)
  });
+
+ 
 
 altAttribute.forEach(alt=> alt.style.color = '#005bd3');
  
