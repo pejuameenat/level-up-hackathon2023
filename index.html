@@ -10,12 +10,14 @@
     <nav>
       <div class="flex-container">
         <div class="logo-wrapper">
-          <a href="https://www.shopify.com/" target="_blank"
+          <button aria-label="logo link button" role="headerNavigation" class="logo-btn">
+            <a href="https://www.shopify.com/" target="_blank"
             ><img
               src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg"
               class="logo"
               alt="shopify-logo"
           /></a>
+          </button>
         </div>
         <div class="input-container">
           <svg
@@ -34,12 +36,12 @@
             />
           </svg>
           <form class="form"> 
-            <input type="text" name="input-area" id="form-input" placeholder="Search" />
+            <input type="text" name="input-area" id="form-input" role="headerNavigation" placeholder="Search" />
           </form>
         </div>
         <div class="dropdown-container">
           <div id="notification-outer">
-            <button aria-label="notification-button" aria-haspopup="true" aria-controls="notification" aria-expanded="false" class="notification-inner popup-btn" id="notification-alert">
+            <button aria-label="notification-button" aria-haspopup="true" aria-controls="notification" aria-expanded="false" class="notification-inner popup-btn" role="headerNavigation" id="notification-alert">
               <svg
                 aria-label="notification-icon_button"
                 class="notification-icon"
@@ -78,8 +80,8 @@
           </div>
           <div class="button-store_wrapper">
             <div class="inner-wrapper">
-              <button type="button" class="store-btn hide popup-btn" id="dropdown" aria-label="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-controller">Davii Collections</button>
-              <button class="dc popup-btn">DC</button>
+              <button type="button" class="store-btn hide popup-btn" id="dropdown" aria-label="button" aria-haspopup="true" aria-expanded="false" aria-controls="menu-controller" role="headerNavigation">Davii Collections</button>
+              <button class="dc popup-btn" role="headerNavigation">DC</button>
             </div>
           </div>
         </div>
@@ -198,7 +200,7 @@
                       <p>Choose a theme and add your logo, colors and images to reflect your brand.<a href="#" class="dashboard-link">Learn More</a></p>
                       <button class="action" aria-expanded="false" aria-label="action store button">Customize theme</button>
                     </div>
-                        <img src="https://crushingit.tech/hackathon-assets/product.png" alt="image of a store"/>
+                    <img src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="customize store"/>
                   </div>
                </div>
             </div>
@@ -220,7 +222,7 @@
                       <button class="action" aria-label="action store button">Add product</button>
                        <a href="" id="action-link">Import product</a>
                     </div>
-                      <img src="https://crushingit.tech/hackathon-assets/customise-store.png" alt="customize store"/>
+                      <img src="https://crushingit.tech/hackathon-assets/product.png" alt="image of a store"/>
                 </div>
              </div>
           </div>

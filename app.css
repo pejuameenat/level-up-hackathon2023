@@ -35,12 +35,13 @@ html{
 body{
     font-family: 'Poppins', sans-serif;
 }
+ 
 nav{
     background-color: var(--clr-blck);
     color: var(--white);
     padding:var(--padding);
     position: relative;
-}
+} 
 .hide{
     display: none;
 }
@@ -49,7 +50,11 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
-
+ 
+.logo-btn{
+    background-color: var(--bg-clr);
+    border: none;
+}
 .input-container{
     width: 45%;
     position: relative;
@@ -114,8 +119,8 @@ nav{
     position: relative;
 }
  
-.store-btn:focus, .notification-inner:focus, .dc:focus{
-    border: 2px solid var(--clr-blue);
+.store-btn:focus, .notification-inner:focus, .dc:focus, .admin-list:focus{
+    outline: 1px solid var(--clr-blue);
 }
 .inner-wrapper span, .dc{
     background-color:  var(--clr-green);
@@ -137,6 +142,7 @@ nav{
     background-color: var(--white);
     padding: var(--padding);
     box-shadow: 1px 1px 1px 1px var(--clr-grey2);
+    transition: all 400ms ease-in;
 }
 
 .notify-inner_div{
@@ -277,9 +283,10 @@ nav{
     padding: var(--padding);
     margin-top: 2rem;
     background-color: var(--white);
-    transition: all 500ms;
 }
- 
+ .accordion{
+    transition: all 400ms ease-in;
+ }
 .set-guide{
     font-size: .9rem;
 }

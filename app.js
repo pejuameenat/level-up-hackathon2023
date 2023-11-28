@@ -25,6 +25,7 @@ const contentWrapper = document.querySelectorAll('.content-wrapper');
 const contentHidden = document.querySelectorAll('.content--hidden');
 const dashProcessBtnHeader = document.querySelectorAll('.dashboard-process_header');
 
+ 
 //REUSABLE FUNCTIONS
 function handleKeyClose(e, el, key){
     if(e.key === key && !el.classList.contains('hide')) 
@@ -39,6 +40,7 @@ function showAlertAndCloseDropdown(el){
 notificationIcon.addEventListener('click', function(){
     const isCollapsed = notificationIcon.getAttribute('aria-expanded')
      modal.classList.toggle('hide')
+     modal.classList.add('transition')
      if(isCollapsed === 'false'){
         notificationIcon.setAttribute('aria-expanded', 'true');
      }else{
@@ -48,7 +50,7 @@ notificationIcon.addEventListener('click', function(){
 
 });
 
-document.addEventListener('keydown', function(e){
+document.addEventListener('keyup', function(e){
      handleKeyClose(e, modal, 'Escape');
 });
 
@@ -74,10 +76,9 @@ AdminList.addEventListener('click', function(e){
         const isFirstList = menuIndex === 0;
         const isLastList = menuIndex === allMenu.length - 1;
         const nextItemList = allMenu.item(menuIndex + 1);
-        // const previousItemList = allMenu.item(menuIndex - 1);
         if(evt.key === 'ArrowDown' || evt.key === 'ArrowRight'){
             if(isLastList){
-             allMenu.item(0).focus()
+             allMenu.item(0).focus();
              return;
             }
             nextItemList.focus();
@@ -87,7 +88,6 @@ AdminList.addEventListener('click', function(e){
                 allMenu.item(allMenu.length - 1).focus()
                 return;
             }
-            // previousItemList.focus();
         }
 
     }
@@ -110,7 +110,7 @@ AdminList.addEventListener('click', function(e){
 });
 
 // STORE DROPDOWN
-document.addEventListener('keydown', function(e){
+document.addEventListener('keyup', function(e){
      handleKeyClose(e, AdminDropdown, 'Escape');
 });
   
@@ -134,14 +134,14 @@ document.addEventListener('keydown', function(e){
 }
 
 dashboardToggler.addEventListener('click', handleDashboardToggle)
-document.addEventListener('keydown', function(e){
+document.addEventListener('keyup', function(e){
     if(e.key === '.' || e.key === ',' && !accordion.classList.contains('hide')){
         handleDashboardToggle();
     }
 });
 
 // adding the appropriate classes to active element in the dash board
- accordion.addEventListener('click', function(e){
+   function handleActiveDashBoardSteps(e){
     const clicked = e.target.closest('.dashboard-process_header', '.dashed-checkbox_wrapper');
     const isOpened =  clicked.getAttribute('aria-expanded');
     if(!clicked && isOpened !== 'false') return;
@@ -153,7 +153,12 @@ document.addEventListener('keydown', function(e){
     clicked.classList.add('active-button');
     document.querySelector(`.content--${clicked.dataset.tab}`).classList.remove('hide');
     document.querySelector(`.content--${clicked.dataset.tab}`).parentElement.classList.add('active');
- })
+ }
+
+ accordion.addEventListener('click', handleActiveDashBoardSteps)
+ accordion.addEventListener('keyup', function(e){
+    if(e.key === 'Space')handleActiveDashBoardSteps(e)
+})
 
  //UPDATING THE PROGRESS BAR AS USER CLICKS.
  function updateProgressBar(){
