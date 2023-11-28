@@ -24,7 +24,6 @@ const checkboxContainer = document.querySelectorAll('.dashed-checkbox_wrapper')
 const contentWrapper = document.querySelectorAll('.content-wrapper');
 const contentHidden = document.querySelectorAll('.content--hidden');
 const dashProcessBtnHeader = document.querySelectorAll('.dashboard-process_header');
-// const circle = document.querySelector('.circle');
 
 //REUSABLE FUNCTIONS
 function handleKeyClose(e, el, key){
@@ -75,7 +74,7 @@ AdminList.addEventListener('click', function(e){
         const isFirstList = menuIndex === 0;
         const isLastList = menuIndex === allMenu.length - 1;
         const nextItemList = allMenu.item(menuIndex + 1);
-        const previousItemList = allMenu.item(menuIndex - 1);
+        // const previousItemList = allMenu.item(menuIndex - 1);
         if(evt.key === 'ArrowDown' || evt.key === 'ArrowRight'){
             if(isLastList){
              allMenu.item(0).focus()
@@ -88,7 +87,7 @@ AdminList.addEventListener('click', function(e){
                 allMenu.item(allMenu.length - 1).focus()
                 return;
             }
-            previousItemList.focus();
+            // previousItemList.focus();
         }
 
     }
@@ -165,7 +164,7 @@ document.addEventListener('keydown', function(e){
     let width = 0;
     for(let i = 0; i < dashCheckbox.length; i++){
         if(dashCheckbox[i].checked){
-            checkedImg[i].classList.remove('hide');
+            checkedImg[i].classList.remove('hide')
              count++;
             width += progressInterval;
         }else{
@@ -180,7 +179,6 @@ document.addEventListener('keydown', function(e){
     check.addEventListener('click',updateProgressBar)
  });
 
- 
 
 altAttribute.forEach(alt=> alt.style.color = '#005bd3');
  

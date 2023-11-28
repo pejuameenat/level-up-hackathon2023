@@ -70,7 +70,6 @@ nav{
     border: 2px solid var(--white);
 }
  
- 
 .input-container svg{
     position: absolute;
     width: 15px;
@@ -132,7 +131,7 @@ nav{
     top: 5rem;
     right: 1.5rem;
     color: var(---mid-black);
-    width: 90%;
+    width: 80%;
     border-radius: 10px;
     border: 1px solid var(--clr-grey4);
     background-color: var(--white);
@@ -302,10 +301,16 @@ nav{
 .dashed-checkbox_wrapper{
    position:  relative;
    background-color: var(--bg-clr);
+   width: 40px;
+   border-radius: 4px;
    border: none;
 }
 .dashed-checkbox_wrapper:focus{
    border: 2px solid --clr-blue;
+}
+.dashed-checkbox_wrapper:focus, .dashed-checkbox_wrapper:hover .radio-dash_checked circle{
+    stroke-dasharray: 0 0!important;
+    fill: var(--clr-grey1);
 }
 [type='checkbox']{
     width: 20px;
@@ -318,11 +323,11 @@ nav{
 
 .checked-img{
     position: absolute;
-    width: 30px;
-    height: 30px;
+    left: .3rem;
     top: 0;
-    left:0;
-    transition: 400ms ease-in;
+    width: 31px;
+    height: 31px;
+    transition:all 200ms ease-in;
 }
  
 /* progress bar */
@@ -452,7 +457,7 @@ nav{
     max-width: 900px; 
 }
 .dashboard-body{
-    border-radius: 10px;
+    border-radius: 13px;
 
 }
 .admin-dropdown{
