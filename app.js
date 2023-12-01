@@ -28,19 +28,18 @@ const dashProcessBtnHeader = document.querySelectorAll('.dashboard-process_heade
  
 //REUSABLE FUNCTIONS
 function handleKeyClose(e, el, key){
-    if(e.key === key && !el.classList.contains('hide')) 
-    el.classList.add('hide')
+    if(e.key === key && !el.classList.contains('hide')); 
+    el.classList.add('hide');
 }
 
 function showAlertAndCloseDropdown(el){
-    if(el.classList.contains('hide'))return
-    else el.classList.add('hide')
+    if(el.classList.contains('hide'))return;
+    else el.classList.add('hide');
 }
 //Alert Modal
 notificationIcon.addEventListener('click', function(){
     const isCollapsed = notificationIcon.getAttribute('aria-expanded')
      modal.classList.toggle('hide')
-     modal.classList.add('transition')
      if(isCollapsed === 'false'){
         notificationIcon.setAttribute('aria-expanded', 'true');
      }else{
@@ -89,7 +88,6 @@ AdminList.addEventListener('click', function(e){
                 return;
             }
         }
-
     }
     if(e.target.classList.contains('store-btn') || e.target.classList.contains('dc') ){
         AdminDropdown.classList.toggle('hide')
@@ -142,7 +140,7 @@ document.addEventListener('keyup', function(e){
 
 // adding the appropriate classes to active element in the dash board
    function handleActiveDashBoardSteps(e){
-    const clicked = e.target.closest('.dashboard-process_header', '.dashed-checkbox_wrapper');
+    const clicked = e.target.closest('.dashboard-process_header');
     const isOpened =  clicked.getAttribute('aria-expanded');
     if(!clicked && isOpened !== 'false') return;
       clicked.setAttribute('aria-expanded', 'true');
@@ -164,16 +162,25 @@ document.addEventListener('keyup', function(e){
  function updateProgressBar(){
     const progressCount= document.querySelector('.progress-count');
     const progressBar = document.querySelector('.progress-bar');
+    const spinner = document.querySelectorAll('.spinner');
     const progressInterval = 100/dashCheckbox.length;
     let count = 0;
     let width = 0;
     for(let i = 0; i < dashCheckbox.length; i++){
         if(dashCheckbox[i].checked){
-            checkedImg[i].classList.remove('hide')
+            spinner[i].classList.remove('hide')
+            radioDashedSvg[i].classList.add('hide')
+            setTimeout(function(){
+               spinner[i].classList.add('hide')
+               checkedImg[i].classList.remove('hide')
+             }, 2000);
              count++;
             width += progressInterval;
         }else{
             checkedImg[i].classList.add('hide');
+            radioDashedSvg[i].classList.remove('hide');
+            spinner[i].classList.add('hide');
+
         }
 }
    progressBar.style.width =`${width}px`;
@@ -181,7 +188,7 @@ document.addEventListener('keyup', function(e){
  }
 
  checkboxContainer.forEach(check => {
-    check.addEventListener('click',updateProgressBar)
+    check.addEventListener('click', updateProgressBar)
  });
 
 
