@@ -25,32 +25,32 @@ const contentWrapper = document.querySelectorAll('.content-wrapper');
 const contentHidden = document.querySelectorAll('.content--hidden');
 const dashProcessBtnHeader = document.querySelectorAll('.dashboard-process_header');
 
- 
+
 //REUSABLE FUNCTIONS
 function handleKeyClose(e, el, key){
-    if(e.key === key && !el.classList.contains('hide')); 
-    el.classList.add('hide');
+    if (e.key === key && !el.classList.contains('hide'))
+        el.classList.add('hide');
 }
 
 function showAlertAndCloseDropdown(el){
     if(el.classList.contains('hide'))return;
-    else el.classList.add('hide');
+    else el.classList.add('hide')
 }
 //Alert Modal
 notificationIcon.addEventListener('click', function(){
     const isCollapsed = notificationIcon.getAttribute('aria-expanded')
      modal.classList.toggle('hide')
      if(isCollapsed === 'false'){
-        notificationIcon.setAttribute('aria-expanded', 'true');
+        notificationIcon.setAttribute('aria-expanded', 'true')
      }else{
-        notificationIcon.setAttribute('aria-expanded', 'false');
+        notificationIcon.setAttribute('aria-expanded', 'false')
      }
-     showAlertAndCloseDropdown(AdminDropdown);
+     showAlertAndCloseDropdown(AdminDropdown)
 
 });
 
 document.addEventListener('keyup', function(e){
-     handleKeyClose(e, modal, 'Escape');
+     handleKeyClose(e, modal, 'Escape')
 });
 
 //resizing browser window
@@ -75,19 +75,22 @@ AdminList.addEventListener('click', function(e){
         const isFirstList = menuIndex === 0;
         const isLastList = menuIndex === allMenu.length - 1;
         const nextItemList = allMenu.item(menuIndex + 1);
+        // const previousItemList = allMenu.item(menuIndex - 1);
         if(evt.key === 'ArrowDown' || evt.key === 'ArrowRight'){
             if(isLastList){
-             allMenu.item(0).focus();
+                allMenu.item(0).focus();
              return;
             }
             nextItemList.focus();
         }
         if(isFirstList){
             if(e.key === 'ArrowUp' || e.key === 'ArrowLeft'){
-                allMenu.item(allMenu.length - 1).focus()
+                allMenu.item(allMenu.length - 1).focus();
                 return;
             }
+            previousItemList.focus();
         }
+
     }
     if(e.target.classList.contains('store-btn') || e.target.classList.contains('dc') ){
         AdminDropdown.classList.toggle('hide')
@@ -128,20 +131,19 @@ document.addEventListener('keyup', function(e){
         imgToggler.setAttribute('src', 'https://crushingit.tech/hackathon-assets/icon-arrow-down.svg')
         accordion.classList.add('hide');
     }
-    dashboardToggler.focus()
 }
 
 dashboardToggler.addEventListener('click', handleDashboardToggle)
 document.addEventListener('keyup', function(e){
-    if(e.key === '.' || e.key === ',' && !accordion.classList.contains('hide')){
+    if(e.key === '.' || e.key === ',' && ! accordion.classList.contains('hide')){
         handleDashboardToggle();
     }
 });
 
 // adding the appropriate classes to active element in the dash board
-   function handleActiveDashBoardSteps(e){
+ accordion.addEventListener('click', function(e){
     const clicked = e.target.closest('.dashboard-process_header');
-    const isOpened =  clicked.getAttribute('aria-expanded');
+   const isOpened =  clicked.getAttribute('aria-expanded');
     if(!clicked && isOpened !== 'false') return;
       clicked.setAttribute('aria-expanded', 'true');
      dashProcessBtnHeader.forEach(btnHeader => btnHeader.classList.remove('active-button')
@@ -151,35 +153,30 @@ document.addEventListener('keyup', function(e){
     clicked.classList.add('active-button');
     document.querySelector(`.content--${clicked.dataset.tab}`).classList.remove('hide');
     document.querySelector(`.content--${clicked.dataset.tab}`).parentElement.classList.add('active');
- }
-
- accordion.addEventListener('click', handleActiveDashBoardSteps)
- accordion.addEventListener('keyup', function(e){
-    if(e.key === 'Space')handleActiveDashBoardSteps(e)
-})
+ })
 
  //UPDATING THE PROGRESS BAR AS USER CLICKS.
  function updateProgressBar(){
     const progressCount= document.querySelector('.progress-count');
-    const progressBar = document.querySelector('.progress-bar');
+     const progressBar = document.querySelector('.progress-bar');
     const spinner = document.querySelectorAll('.spinner');
     const progressInterval = 100/dashCheckbox.length;
     let count = 0;
     let width = 0;
     for(let i = 0; i < dashCheckbox.length; i++){
         if(dashCheckbox[i].checked){
-            spinner[i].classList.remove('hide')
-            radioDashedSvg[i].classList.add('hide')
+            spinner[i].classList.remove('hide');
+            radioDashedSvg[i].classList.add('hide');
             setTimeout(function(){
-               spinner[i].classList.add('hide')
-               checkedImg[i].classList.remove('hide')
-             }, 2000);
+                spinner[i].classList.add('hide');
+                checkedImg[i].classList.remove('hide');
+             }, 3000);
              count++;
             width += progressInterval;
-        }else{
-            checkedImg[i].classList.add('hide');
+        } else {
+            spinner[i].classList.add('hide')
             radioDashedSvg[i].classList.remove('hide');
-            spinner[i].classList.add('hide');
+            checkedImg[i].classList.add('hide');
 
         }
 }
@@ -191,6 +188,4 @@ document.addEventListener('keyup', function(e){
     check.addEventListener('click', updateProgressBar)
  });
 
-
 altAttribute.forEach(alt=> alt.style.color = '#005bd3');
- 

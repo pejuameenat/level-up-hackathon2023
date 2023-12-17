@@ -283,6 +283,8 @@ nav{
     padding: var(--padding);
     margin-top: 2rem;
     background-color: var(--white);
+    /* border-radius: 50%; */
+    /* border: 2px solid red; */
 }
  .accordion{
     transition: all 400ms ease-in;
